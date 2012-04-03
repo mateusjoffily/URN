@@ -1,0 +1,4 @@
+probRedL	 ambLevelL	 exanteL	 probRedR	 ambLevelR	 exanteR	 outcomeWinL	 outcomeLossL	 outcomeWinR	 outcomeLossR	 payDownUpL	 payDownUpR	 shiftLR	 trialCode
+0.62	 0.25	 1	 0.5	 0	 0	 0	 14	 0	 10	 1	 2	 2	 232
+0.62	 0.00	 0	 0.5	 0	 0	 0	 14	 0	 10	 2	 2	 1	 195
+0.38	 0.25	 0	 0.5	 0	 0	 14	 0	 10	 0	 2	 1	 2	 218
