@@ -22,6 +22,10 @@ sessType = 'demo';  % 'demo' or 'exp'
 % debug mode
 debug_mode = true;    % If true, open small screen
                       % If false, open full screen
+                      
+% send triggers
+send_triggers = false; % If true, send triggers through the parallel port
+                       % If false, don't send triggers through the parallel port
 
 %==========================================================================
 % DO NOT CHANGE BELOW THIS LINE
@@ -35,6 +39,11 @@ emoScaleFaces = false;
 % Useful tips: CTRL-C - stop ASFX execution
 %              sca    - clear screen and return to Win
 Cfg = ASFX_setCfg([], 'lab', debug_mode);  
+
+% ASF Send triggers to output device
+if ~send_triggers
+    Cfg.issueTriggers = 0;  
+end
 
 % ASF ShowTrial function
 if emoScaleFaces
