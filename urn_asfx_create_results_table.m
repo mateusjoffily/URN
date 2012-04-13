@@ -1,4 +1,4 @@
-function urn_asfx_create_results_table(fout, sessType)
+function payoff = urn_asfx_create_results_table(fout, sessType)
 
 if nargin == 0 || isempty(fout)
     % Select asfx output mat file
@@ -116,6 +116,9 @@ for n = 1:nTrials
     
     % Selected payoff
     fprintf(fid, '%d\n', selected_payoff(n));
+    if n == iTrial
+        payoff = outcomeChoice;
+    end
     
 end    
 
