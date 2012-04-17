@@ -1,4 +1,4 @@
-function payoff = urn_LA_asfx(subjectID, language, sessType, debug_mode, send_triggers)
+function payoff = urn_LA_asfx(subjectID, language, sessType, debug_mode, send_triggers, pout)
 
 %==========================================================================
 % DO NOT CHANGE BELOW THIS LINE
@@ -40,11 +40,11 @@ Cfg.sessType = sessType;
 %--------------------------------------------------------------------------
 fout = []; ftrd = [];
 if strcmp(sessType, 'exp')
-    fout = fullfile('.', sprintf('%s_exp', subjectID));
+    fout = fullfile(pout, sprintf('%s_exp', subjectID));
     ftrd = 'urn_asf_exp.trd';
     
 elseif strcmp(sessType, 'demo')
-    fout = fullfile('.', sprintf('%s_demo', subjectID));
+    fout = fullfile(pout, sprintf('%s_demo', subjectID));
     ftrd = 'urn_asf_demo.trd';
     
 else

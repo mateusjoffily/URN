@@ -1,7 +1,10 @@
 % Example script for processing and analyising Electrodemal Activity (EDA)
 
 % convert BrainAmp VHDR to matlab formatdata
-[data fs event fmat] = vhdr2mat([], [], [], 1, false);
+[data fs event fmat saveOK] = vhdr2mat([], [], [], 1, false);
+if ~saveOK
+    error('script interrupted!')
+end
 
 nChan = 1;                % select EDA channel
 eda = data(nChan,:);      % EDA signal to be processed
@@ -45,4 +48,10 @@ save(fmat, 'filt', 'edr', 'conds', '-APPEND');
 
 % Review EDR/EDL/Conditions and remove artifacts (GUI). (see 'help eda_gui')
 %--------------------------------------------------------------------------
-eda_gui(eda, fs, edr, fmat);
+uiwait( eda_gui(eda, fs, edr, fmat) );
+
+% Save results (EDR and EDL) grouped by conditions in TEXT file (see
+% 'eda_save_text')
+%--------------------------------------------------------------------------
+load(fmat);
+eda_save_text(eda, fs, edr, conds);
