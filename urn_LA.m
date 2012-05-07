@@ -5,7 +5,6 @@ minumpayoff = 5;
 
 % Output path
 pout = 'C:\Matlab_output\';
-pout = 'C:\data';
 
 %==========================================================================
 % DO NOT CHANGE BELOW THIS LINE
@@ -33,7 +32,8 @@ answer{1} = [answer{1} 'XXX'];
 answer{2} = [answer{2} 'XXX'];
 dd = datestr(now, 2);
 dd([3 6]) = [];
-subjectID = [upper(answer{1}(1:3)) upper(answer{2}(1:3)) dd];
+ftmp = tempname;
+subjectID = [upper(answer{1}(1:3)) upper(answer{2}(1:3)) dd '_' ftmp(end-4:end)];
 
 %DEMO
 uiwait(warndlg(sprintf('Wait for the experimenter authorization and only after\npress the OK button below to start the training session.'), 'TRAINING'));

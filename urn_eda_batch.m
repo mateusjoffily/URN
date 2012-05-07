@@ -54,4 +54,6 @@ uiwait( eda_gui(eda, fs, edr, fmat) );
 % 'eda_save_text')
 %--------------------------------------------------------------------------
 load(fmat);
-eda_save_text(eda, fs, edr, conds);
+[fpath,fname] = fileparts(fmat);
+ftxt = fullfile(fpath, [fname(1:end-4) '_gsr_res.txt']);
+eda_save_text(eda, fs, edr, conds, ftxt);
