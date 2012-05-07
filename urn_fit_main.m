@@ -42,10 +42,10 @@ switch dowhat
     case 'fit'
         % Initial value of parameters
         %------------------------------------------------------------------
-        alpha =  0.1:0.1:2;
-        beta  = -1:0.1:1;
-        theta = -1:0.1:1;
-        gamma =  0:0.1:3;
+        alpha =  0.1:0.2:2;
+        beta  = -1:0.2:1;
+        theta = -1:0.2:1;
+        gamma =  0:0.2:3;
 
         [ALPHA, BETA, THETA, GAMMA] = ndgrid(alpha, beta, theta, gamma);
 
